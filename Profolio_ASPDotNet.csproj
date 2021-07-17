@@ -178,6 +178,8 @@
     <Content Include="Views\Contact\ViewContact.cshtml" />
     <Content Include="Views\Project\ViewProject.cshtml" />
     <Content Include="Views\Login\ViewLogin.cshtml" />
+    <Content Include="Views\Project\ViewProjectDetails.cshtml" />
+    <Content Include="Views\Project\ViewProgrammingLanguage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

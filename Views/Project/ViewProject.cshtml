@@ -4,9 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>About Projects</h2>
 
 @foreach (var project in Model.Projects)
 {
-    <button type="button" class="btn btn-outline-success">@project.PLanguage</button>
+    <button type="button" class="btn btn-outline-success"
+            onclick="location.href='@Url.Action("ViewProjectDetails", "Project", new { id = project.Id })'">
+        @project.ProjectName
+    </button>
 }

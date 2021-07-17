@@ -1,0 +1,20 @@
+﻿@model Profolio_ASPDotNet.Models.ProjectsModel.ProjectsViewModel
+@{
+    ViewBag.Title = "ViewProgrammingLanguage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var languageName = new List<String>();
+}
+@foreach (var project in Model.Projects)
+{
+    if (!languageName.Contains(project.PLanguage))
+    {
+        <button type="button" class="btn btn-outline-success"
+                onclick="location.href='@Url.Action("ViewProject", "Project",new { PLanguage=project.PLanguage})'">
+            @project.PLanguage
+        </button>
+        languageName.Add(project.PLanguage);
+    }
+
+}
