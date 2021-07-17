@@ -1,0 +1,12 @@
+﻿@model Profolio_ASPDotNet.Models.ProjectsModel.ProjectsViewModel
+@{
+    ViewBag.Title = "Projects";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>About Projects</h2>
+
+@foreach (var project in Model.Projects)
+{
+    <button type="button" class="btn btn-outline-success">@project.PLanguage</button>
+}
