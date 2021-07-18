@@ -11,72 +11,30 @@ namespace Profolio_ASPDotNet.Controllers
 {
     public class ProjectController : Controller
     {
+        private ProfolioDBContext _context;
+        public ProjectController()
+        {
+            _context = new ProfolioDBContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         // GET: Project
         public ActionResult ViewProgrammingLanguage()
-        {
-            var project = new List<Project> {
-                new Project {Id=0, ProjectName="Profolio",
-                    ProjectLink="https://github.com/MayPhoo-tech-2020/Profolio-ASP.Net-MVC",
-                    ProjectDescription="Hello World",PLanguage="C#"},
-                new Project {Id=1, ProjectName="WebScrappingDota2Data",
-                    ProjectLink="https://github.com/MayPhoo-tech-2020/WebScrappingDota2Data",
-                    ProjectDescription="Hello World",PLanguage="Python"},
-                new Project {Id=2, ProjectName="AirBNB-ASP.NET-MVC",
-                    ProjectLink="https://github.com/MayPhoo-tech-2020/AirBNB-ASP.NET-MVC/tree/main/AirBnB/Views/Customer",
-                    ProjectDescription="Hello World",PLanguage="C#"},
-                new Project {Id=3, ProjectName="ETLDevelopment-WorldBankData",
-                    ProjectLink="https://github.com/MayPhoo-tech-2020/ETLDevelopment-WorldBankData",
-                    ProjectDescription="Hello World",PLanguage="Python"}
-            };
-            var projectViewModel = new ProjectsViewModel
-            {
-                Projects = project
-            };
-            return View(projectViewModel);
+        {       
+            return View(_context.Projects);
         }
 
         public ActionResult ViewProject(string pLanguage)
 		{
-            var project = new List<Project> {
-                new Project {Id=0, ProjectName="Profolio",
-                    ProjectLink="https://github.com/MayPhoo-tech-2020/Profolio-ASP.Net-MVC",
-                    ProjectDescription="Hello World",PLanguage="C#"},
-                new Project {Id=1, ProjectName="WebScrappingDota2Data",
-                    ProjectLink="https://github.com/MayPhoo-tech-2020/WebScrappingDota2Data",
-                    ProjectDescription="Hello World",PLanguage="Python"},
-                new Project {Id=2, ProjectName="AirBNB-ASP.NET",
-                    ProjectLink="https://github.com/MayPhoo-tech-2020/AirBNB-ASP.NET-MVC/tree/main/AirBnB/Views/Customer",
-                    ProjectDescription="Hello World",PLanguage="C#"},
-                new Project {Id=3, ProjectName="ETLDevelopment-WorldBankData",
-                    ProjectLink="https://github.com/MayPhoo-tech-2020/ETLDevelopment-WorldBankData",
-                    ProjectDescription="Hello World",PLanguage="Python"}
-            };
-            
-            var projectViewModel = new ProjectsViewModel
-            {
-                Projects = project.FindAll(x => x.PLanguage == pLanguage)
-            };
-            Console.WriteLine(projectViewModel);
-            return View(projectViewModel);
+            var projects = _context.Projects.Where(x => x.PLanguage == pLanguage);
+            return View(projects);
 		}
         public ActionResult ViewProjectDetails(int id)
         {
-            var project = new List<Project> {
-                new Project {Id=0, ProjectName="Profolio",
-                    ProjectLink="https://github.com/MayPhoo-tech-2020/Profolio-ASP.Net-MVC",
-                    ProjectDescription="Hello World",PLanguage="C#"},
-                new Project {Id=1, ProjectName="WebScrappingDota2Data",
-                    ProjectLink="https://github.com/MayPhoo-tech-2020/WebScrappingDota2Data",
-                    ProjectDescription="Hello World",PLanguage="Python"},
-                new Project {Id=2, ProjectName="AirBNB-ASP.NET-MVC",
-                    ProjectLink="https://github.com/MayPhoo-tech-2020/AirBNB-ASP.NET-MVC/tree/main/AirBnB/Views/Customer",
-                    ProjectDescription="Hello World",PLanguage="C#"},
-                new Project {Id=3, ProjectName="ETLDevelopment-WorldBankData",
-                    ProjectLink="https://github.com/MayPhoo-tech-2020/ETLDevelopment-WorldBankData",
-                    ProjectDescription="Hello World",PLanguage="Python"}
-            };
-            var projectDetail = project.Find(x => x.Id == id);
-            return View(projectDetail);
+            var projectDetail = _context.Projects.SingleOrDefault(x => x.Id == id);
+            return View();
         }
     }
 }

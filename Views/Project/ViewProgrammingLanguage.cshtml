@@ -1,4 +1,4 @@
-﻿@model Profolio_ASPDotNet.Models.ProjectsModel.ProjectsViewModel
+﻿@model IEnumerable<Profolio_ASPDotNet.Models.Project>
 @{
     ViewBag.Title = "ViewProgrammingLanguage";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,7 +6,7 @@
 @{
     var languageName = new List<String>();
 }
-@foreach (var project in Model.Projects)
+@foreach (var project in Model)
 {
     if (!languageName.Contains(project.PLanguage))
     {

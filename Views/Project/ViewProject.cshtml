@@ -1,11 +1,11 @@
-﻿@model Profolio_ASPDotNet.Models.ProjectsModel.ProjectsViewModel
+﻿@model IEnumerable<Profolio_ASPDotNet.Models.Project>
 @{
     ViewBag.Title = "Projects";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
-@foreach (var project in Model.Projects)
+@foreach (var project in Model)
 {
     <button type="button" class="btn btn-outline-success"
             onclick="location.href='@Url.Action("ViewProjectDetails", "Project", new { id = project.Id })'">
