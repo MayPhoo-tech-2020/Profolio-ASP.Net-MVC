@@ -1,8 +1,34 @@
-﻿@model Profolio_ASPDotNet.Models.Project 
+﻿@model Profolio_ASPDotNet.Models.Project
 @{
     ViewBag.Title = "ViewProjectDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>@Model.ProjectName</h2>
+    <div class="card border-success mb-3" style="max-width: 40rem;">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <h5>Project Name:</h5>
+                </div>
+                <div class="col-xs-6 col-md-6">
+                    <h5>@Model.ProjectName</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <h5>Project Link: </h5>
+                </div>
+                <div class="col-xs-6 col-md-7">
+                    <a target="_blank" rel="noopener" class="nav-link" href=@Model.ProjectLink><i class="fa fa-github"></i>@Model.ProjectLink</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <h5>Description: </h5>
+                </div>
+                <div class="col-xs-6 col-md-6">
+                    <p>@Model.ProjectDescription</p>
+                </div>
+            </div>
+        </div>
+    </div>
 

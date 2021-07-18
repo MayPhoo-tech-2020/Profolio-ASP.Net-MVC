@@ -21,10 +21,10 @@ namespace Profolio_ASPDotNet.Controllers
                 new Project {Id=1, ProjectName="WebScrappingDota2Data",
                     ProjectLink="https://github.com/MayPhoo-tech-2020/WebScrappingDota2Data",
                     ProjectDescription="Hello World",PLanguage="Python"},
-                new Project {Id=2, ProjectName="Profolio",
+                new Project {Id=2, ProjectName="AirBNB-ASP.NET-MVC",
                     ProjectLink="https://github.com/MayPhoo-tech-2020/AirBNB-ASP.NET-MVC/tree/main/AirBnB/Views/Customer",
                     ProjectDescription="Hello World",PLanguage="C#"},
-                new Project {Id=3, ProjectName="WebScrappingDota2Data",
+                new Project {Id=3, ProjectName="ETLDevelopment-WorldBankData",
                     ProjectLink="https://github.com/MayPhoo-tech-2020/ETLDevelopment-WorldBankData",
                     ProjectDescription="Hello World",PLanguage="Python"}
             };
@@ -68,10 +68,10 @@ namespace Profolio_ASPDotNet.Controllers
                 new Project {Id=1, ProjectName="WebScrappingDota2Data",
                     ProjectLink="https://github.com/MayPhoo-tech-2020/WebScrappingDota2Data",
                     ProjectDescription="Hello World",PLanguage="Python"},
-                new Project {Id=2, ProjectName="Profolio",
+                new Project {Id=2, ProjectName="AirBNB-ASP.NET-MVC",
                     ProjectLink="https://github.com/MayPhoo-tech-2020/AirBNB-ASP.NET-MVC/tree/main/AirBnB/Views/Customer",
                     ProjectDescription="Hello World",PLanguage="C#"},
-                new Project {Id=3, ProjectName="WebScrappingDota2Data",
+                new Project {Id=3, ProjectName="ETLDevelopment-WorldBankData",
                     ProjectLink="https://github.com/MayPhoo-tech-2020/ETLDevelopment-WorldBankData",
                     ProjectDescription="Hello World",PLanguage="Python"}
             };
