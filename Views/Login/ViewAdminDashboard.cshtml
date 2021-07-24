@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Profolio_ASPDotNet.Models.Project>
+@{
+    ViewBag.Title = "ViewAdminDashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AdminDashboard</h2>
+<button type="button" class="btn btn-outline-success"
+        onclick="location.href='@Url.Action("NewExperienceView", "Login")'">
+    Create New Project
+</button>
+<h3>Projects</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Project Name</th>
+            <th scope="col">Project Link</th>
+            <th scope="col">Project Description</th>
+            <th scope="col">Programming Language</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model)
+        {
+            <tr>
+                <td>
+                    @project.ProjectName
+                </td>
+                <td><p><a class="btn btn-default" href=@project.ProjectLink>@project.ProjectLink</a></p></td>
+                <td>@project.ProjectDescription</td>
+                <td>@project.PLanguage</td>
+            </tr>
+        }
+    </tbody>
+</table>

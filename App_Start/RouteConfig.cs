@@ -16,7 +16,7 @@ namespace Profolio_ASPDotNet
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Profile", action = "ViewProfile", id = UrlParameter.Optional }
             );
         }
     }
