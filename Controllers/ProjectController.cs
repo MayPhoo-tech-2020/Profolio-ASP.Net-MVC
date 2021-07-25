@@ -28,13 +28,34 @@ namespace Profolio_ASPDotNet.Controllers
 
         public ActionResult ViewProject(string pLanguage)
 		{
-            var projects = _context.Projects.Where(x => x.PLanguage == pLanguage);
+            var projects = _context.Projects.Where(x => x.PLanguage.Trim().ToLower() == pLanguage.Trim().ToLower());
             return View(projects);
 		}
         public ActionResult ViewProjectDetails(int id)
         {
             var projectDetail = _context.Projects.SingleOrDefault(x => x.Id == id);
             return View();
+        }
+
+        public ActionResult Save(Project project)
+		{
+			if (project.Id == 0)
+			{
+                _context.Projects.Add(project);
+            }
+			else
+			{
+                var projectInDb = _context.Projects.Single(p => p.Id == project.Id);
+                //Mapper.Map(project,projectInDB)//Using Auto Mapper
+                projectInDb.ProjectName = project.ProjectName;
+                projectInDb.ProjectLink = project.ProjectLink;
+                projectInDb.ProjectDescription = project.ProjectDescription;
+                projectInDb.PLanguage = project.PLanguage;
+             }
+            
+            _context.SaveChanges();
+            return RedirectToAction("ViewAdminDashboard", "Login");
+
         }
     }
 }

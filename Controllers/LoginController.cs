@@ -23,14 +23,17 @@ namespace Profolio_ASPDotNet.Controllers
         {
             return View();
         }
+        public ActionResult ViewAdminDashboard()
+		{
+            return View("ViewAdminDashboard", _context.Projects.ToList());
+        }
         public ActionResult Submit(Account account)
 		{
             var _account = account;
-            var projects = _context.Projects.ToList();
             if(account.email=="phoowintzay.software@gmail.com" &&
                 account.password == "ljwljejewoijiooi1o28387u")
 			{
-                return View("ViewAdminDashboard", projects);
+                return View("ViewAdminDashboard", _context.Projects.ToList());
             }
 			else
 			{
@@ -40,6 +43,10 @@ namespace Profolio_ASPDotNet.Controllers
         public ActionResult NewExperienceView()
 		{
             return View();
+		}
+        public ActionResult Update(Project project)
+		{
+            return View("NewExperienceView", project);
 		}
     }
 }

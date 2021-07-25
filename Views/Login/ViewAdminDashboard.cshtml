@@ -6,6 +6,7 @@
 
 <h2>AdminDashboard</h2>
 <button type="button" class="btn btn-outline-success"
+        style="margin-bottom:10px;"
         onclick="location.href='@Url.Action("NewExperienceView", "Login")'">
     Create New Project
 </button>
@@ -24,7 +25,7 @@
         {
             <tr>
                 <td>
-                    @project.ProjectName
+                    @Html.ActionLink(@project.ProjectName,"Update","Login",project,null)
                 </td>
                 <td><p><a class="btn btn-default" href=@project.ProjectLink>@project.ProjectLink</a></p></td>
                 <td>@project.ProjectDescription</td>

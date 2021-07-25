@@ -1,8 +1,30 @@
-﻿
+﻿@model Profolio_ASPDotNet.Models.Project
 @{
     ViewBag.Title = "NewExperienceView";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>NewExperienceView</h2>
-
+<h2>Create New Project</h2>
+@using (Html.BeginForm("Save", "Project"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.ProjectName)
+        @Html.TextBoxFor(m => m.ProjectName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ProjectLink)
+        @Html.TextBoxFor(m => m.ProjectLink, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ProjectDescription)
+        @Html.TextAreaFor(m => m.ProjectDescription, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Programming Language")
+        @Html.TextBoxFor(m => m.PLanguage, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.Id)
+    <div class="btn btn-primary" style="margin-top:10px;">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+}
