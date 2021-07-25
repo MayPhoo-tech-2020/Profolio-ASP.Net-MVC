@@ -30,8 +30,8 @@ namespace Profolio_ASPDotNet.Controllers
         public ActionResult Submit(Account account)
 		{
             var _account = account;
-            if(account.email=="phoowintzay.software@gmail.com" &&
-                account.password == "ljwljejewoijiooi1o28387u")
+            if(account.email=="tester@gmail.com" &&
+                account.password == "123456")
 			{
                 return View("ViewAdminDashboard", _context.Projects.ToList());
             }

@@ -8,13 +8,13 @@
 }
 @foreach (var project in Model)
 {
-    if (!languageName.Contains(project.PLanguage))
+    if (!languageName.Contains(project.PLanguage.ToLower().Trim()))
     {
         <button type="button" class="btn btn-outline-success"
                 onclick="location.href='@Url.Action("ViewProject", "Project",new { PLanguage=project.PLanguage})'">
             @project.PLanguage
         </button>
-        languageName.Add(project.PLanguage);
+        languageName.Add(project.PLanguage.ToLower().Trim());
     }
 
 }
