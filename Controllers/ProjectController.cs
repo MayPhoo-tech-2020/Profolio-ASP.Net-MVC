@@ -34,7 +34,7 @@ namespace Profolio_ASPDotNet.Controllers
         public ActionResult ViewProjectDetails(int id)
         {
             var projectDetail = _context.Projects.SingleOrDefault(x => x.Id == id);
-            return View();
+            return View(projectDetail);
         }
 
         public ActionResult Save(Project project)
